@@ -7,4 +7,7 @@ function getInitialData(){
     // for example use this fetch('https://esi.evetech.net/dev/characters/93939512/').then(function(response){response.json().then(function(jsondata){console.log(jsondata)}) });
     
 
+    fetch('https://esi.evetech.net/dev/characters/93939512/').then(function(response){response.json().then(function(jsondata){console.log(jsondata)}) });
+
+
 }
