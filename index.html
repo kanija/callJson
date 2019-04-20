@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CALL JSON</title>
     <script type="text/javascript" src="script.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <style>
         body {margin:0; padding: 0;}
         h1 {margin:0;}
@@ -13,7 +14,7 @@
         .info {display:table; margin-top:10px;}
         .info > div {display: table-row;}
         .info > div > div {display: table-cell; padding: 4px;}
-        .btn {margin-left:40px; margin-top:10px;}
+        .btn {display:none; margin-left:40px; margin-top:10px;}
     </style>
 </head>
 <body>
@@ -27,23 +28,23 @@
         </div>
         <div>
             <div>Ancestry ID</div>
-            <div>...</div>
+            <div id="ancestry_id">...</div>
         </div>
         <div>
             <div>Birthday</div>
-            <div>...</div>
+            <div id="birthday">...</div>
         </div>
         <div>
             <div>Bloodline ID</div>
-            <div>...</div>
+            <div id="bloodline_id">...</div>
         </div>
         <div>
             <div>Corporation ID</div>
-            <div>...</div>
+            <div id="corporation_id">...</div>
         </div>
         <div>
             <div>Description</div>
-            <div>...</div>
+            <div id="description">...</div>
         </div>
         <div>
             <div>Faction ID</div>
@@ -51,21 +52,47 @@
         </div>
         <div>
             <div>Gender</div>
-            <div>...</div>
+            <div id="gender">...</div>
         </div>
         <div>
             <div>Name</div>
-            <div>...</div>
+            <div id="name">...</div>
         </div>
         <div>
             <div>Race ID</div>
-            <div>...</div>
+            <div id="race_id">...</div>
         </div>
         <div>
             <div>Security Status</div>
-            <div>...</div>
+            <div id="security_status">...</div>
         </div>
     </div>     
 </div>
 </body>
+<script>
+// I USED JQUERY... IS THAT CONSIDERED CHEATING? :)  
+$(document).ready(function(){
+    getInitialData();
+    $.getJSON('https://esi.evetech.net/dev/characters/93939512/', function(data){
+        var birthday = document.querySelector('#birthday');
+        birthday.textContent = data.birthday;
+        var ancestry_id = document.querySelector('#ancestry_id');
+        ancestry_id.textContent = data.ancestry_id;
+        var bloodline_id = document.querySelector('#bloodline_id');
+        bloodline_id.textContent = data.bloodline_id;
+        var corporation_id = document.querySelector('#corporation_id');
+        corporation_id.textContent = data.corporation_id;
+        var description = document.querySelector('#description');
+        description.textContent = data.description;
+        var gender = document.querySelector('#gender');
+        gender.textContent = data.gender;
+        var name = document.querySelector('#name');
+        name.textContent = data.name;
+        var race_id = document.querySelector('#race_id');
+        race_id.textContent = data.race_id;
+        var security_status = document.querySelector('#security_status');
+        security_status.textContent = data.security_status;
+     });
+});
+</script>
 </html>
