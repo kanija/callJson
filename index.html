@@ -24,7 +24,7 @@
     <div class="info">
         <div>
             <div>Alliance ID</div>
-            <div>...</div>
+            <div id="author">...</div>
         </div>
         <div>
             <div>Ancestry ID</div>
@@ -75,6 +75,8 @@
 $(document).ready(function(){
     getInitialData();
     $.getJSON('https://esi.evetech.net/dev/characters/93939512/', function(data){
+        var author = document.querySelector("#author");
+        author.textContent = "Ronen Rothfarb";
         var birthday = document.querySelector('#birthday');
         birthday.textContent = data.birthday;
         var ancestry_id = document.querySelector('#ancestry_id');
